@@ -1,0 +1,40 @@
+<form>
+  <div class="form-row align-items-center" >
+    <div class="col-auto">
+      <label for="" class="mb-3">Filter City: &nbsp;</label>
+    </div>
+    <div class="col-auto">
+    <input type="text"
+    name="SearchCity"
+    class="form-control mb-2"
+    [(ngModel)]="City">
+    </div>
+    <div class="col-auto">
+      <button class="btn btn-outline-info mb-2" (click)="onSearchCity()">Search</button>
+    </div>
+    <div class="col-auto">
+      <label for="" class="mb-3">Sory By: &nbsp;</label>
+    </div>
+    <div class="col-auto">
+    <select name="SoryByParam" [(ngModel)]="SortByParam" class="form-control mb-2">
+      <option  value="City" selected>City</option>
+      <option value="Price">Price</option>
+    </select>
+    </div>
+    <div class="col-auto mb-2">
+      <button type="button" class="btn btn-outline-dark"
+       (click)="onSortDirection()">Sort
+      <i *ngIf="SortDirection === 'asc'" class="fas fa-sort-alpha-down"></i>
+      <i *ngIf="SortDirection === 'desc'" class="fas fa-sort-alpha-up"></i>
+      </button>
+    </div>
+  </div>
+</form>
+<div class="row align-items-start mt-3" >
+  <div *ngFor="let x of properties | filter: SearchCity:'City' | sort: [SortByParam, SortDirection]"  class="col-sm-4">
+    <div class="shadow-lg p-3 mb-4">
+      <app-property-card [property]="x"></app-property-card>
+    </div>
+  </div>
+</div>
+
