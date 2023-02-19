@@ -1,5 +1,5 @@
 <div class="row mb-5">
-  <div class="col-8 shadow-lg p-0 bg-white">
+  <div class="col-xs-12 col-sm-12 col-md-8 shadow-lg p-0 bg-white">
     <div class="card">
       <div class="card-header">
         <h3>List your Property</h3>
@@ -89,12 +89,33 @@
                   </div>
                 </div>
 
+                <!-- <div class="form-group col-12">
+                  <label>City</label>
+                  <select
+                  class="form-control"
+                  formControlName="City"
+                  [(ngModel)]="propertyView.City">
+                    <option value="" >--Select City--</option>
+                    <option *ngFor="let city of cityList" value={{city}}>
+                      {{city}}
+                    </option>
+
+                  </select>
+
+                  <div class="error-block"
+                  *ngIf="City.invalid && (nextClicked || City.touched)">
+                    Please select city
+                  </div>
+                </div> -->
+
+
                 <div class="form-group col-12">
                   <label>City</label>
                   <input type="text"
                   class="form-control"
                   formControlName="City"
                   [(ngModel)]="propertyView.City">
+
                   <div class="error-block"
                   *ngIf="City.invalid && (nextClicked || City.touched)">
                     Please select city
@@ -314,7 +335,7 @@
       </div>
   </div>
   </div>
-  <div class="col-4">
+  <div class="col-xs-12 col-sm-12 col-md-4">
     <div class="card-header">
       <h3>Your Property Preview</h3>
     </div>

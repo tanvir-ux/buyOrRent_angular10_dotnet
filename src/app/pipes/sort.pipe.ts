@@ -13,16 +13,18 @@ export class SortPipe implements PipeTransform {
 
     if (sortDirection === 'desc') multiplier =  -1;
 
-    value.sort((a: any, b: any) => {
-      if (a[sortFiled] < b[sortFiled]) {
-        return -1 * multiplier;
-      } else if (a[sortFiled] > b[sortFiled]) {
-        return 1 * multiplier;
-      } else {
-        0;
-      }
-    });
-    return value;
+    if (value) {
+      value.sort((a: any, b: any) => {
+        if (a[sortFiled] < b[sortFiled]) {
+          return -1 * multiplier;
+        } else if (a[sortFiled] > b[sortFiled]) {
+          return 1 * multiplier;
+        } else {
+          0;
+        }
+      });
+      return value;
+    }
   }
 
 }
